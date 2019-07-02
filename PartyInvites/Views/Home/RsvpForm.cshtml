@@ -1,0 +1,44 @@
+﻿@model PartyInvites.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width-device-width" />
+    <title>Formularz | Urodziny K</title>
+</head>
+<body>
+    <div>
+        <center>
+            Formularz RSVP
+            <!--533393638 577206300-->
+
+            <form asp-action="RsvpForm" method="post">
+                <p>
+                    <label asp-for="Name">Imię i nazwisko:</label>
+                    <input asp-for="Name" />
+                </p>
+                <p>
+                    <label asp-for="Email">Adres e-mail:</label>
+                    <input asp-for="Email" />
+                </p>
+                <p>
+                    <label asp-for="Phone">Numer telefonu:</label>
+                    <input asp-for="Phone" />
+                </p>
+                <p>
+                    <label>Czy przyjdziesz na przyjęcie?</label>
+                    <select asp-for="WillAttend">
+                        <option value="">Wybierz opcję</option>
+                        <option value="true">Tak, przyjdę</option>
+                        <option value="false">Nie, nie przyjdę</option>
+                    </select>
+                </p>
+                <button type="submit">Wyślij potwierdzenie</button>
+            </form>
+        </center>
+    </div>
+</body>
+</html>

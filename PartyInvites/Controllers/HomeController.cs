@@ -1,37 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using PartyInvites.Models;
 
 namespace PartyInvites.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public ViewResult Index()
+        {
+            int hour = DateTime.Now.Hour;
+            ViewBag.Greeting = hour < 17 ? "Dzień dobry" : "Dobry wieczór";
+            ViewBag.Hour = $"{DateTime.Now.Hour}:{DateTime.Now.Minute}";
+            ViewBag.Day = $"{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}";
+
+            int daysLeft = 27 - DateTime.Now.Day;
+            string d = daysLeft != 1 ? "dni" : "dzień";
+            ViewBag.TimeLeft = daysLeft >= 0 ? $"Do urodzin zostało: {daysLeft} {d}" : "W tym roku już po imprezie, zapraszamy za rok :-)";
+
+            return View("MyView");
+        }
+
+        [HttpGet]
+        public ViewResult RsvpForm()
         {
             return View();
         }
 
-        public IActionResult About()
+        [HttpPost]
+        public ViewResult RsvpForm(GuestResponse guestResponse)
         {
-            ViewData["Message"] = "Your application description page.";
-
+            //TODO: wysyłanie maila do organizatora
             return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+
+<html>
+    <head>
+        <meta name="viewport" content="width-device-width" />
+        <title>Urodziny K</title>
+    </head>
+    <body>
+        <div>
+            <center>
+                @ViewBag.Greeting! <br />
+                Jest godzina @ViewBag.Hour, dnia @ViewBag.Day<br />
+                @ViewBag.TimeLeft
+
+                <br /><br /><br />
+                <a asp-action="RsvpForm">Wyślij potwierdzenie</a>
+            </center>
+        </div>
+    </body>
+</html>
