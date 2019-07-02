@@ -34,9 +34,18 @@ namespace PartyInvites.Controllers
         {
             //TODO: wysyłanie maila do organizatora
 
-            //adding response to Repository
-            Repository.AddResponse(guestResponse);
-            return View("Thanks", guestResponse);
+            //walidacja formularza
+            if (ModelState.IsValid)
+            {
+                //adding response to Repository
+                Repository.AddResponse(guestResponse);
+                return View("Thanks", guestResponse);
+            }
+            else
+            {
+                //niepoprawne dane
+                return View();
+            }
         }
 
         public ViewResult ListResponses()
