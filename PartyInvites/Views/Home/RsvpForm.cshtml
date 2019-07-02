@@ -7,38 +7,41 @@
 <html>
 <head>
     <meta name="viewport" content="width-device-width" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <title>Formularz | Urodziny K</title>
 </head>
 <body>
-    <div>
-        <center>
-            Formularz RSVP
-
-            <form asp-action="RsvpForm" method="post">
-                <p>
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h4>Potwierdzenie przybycia na przyjęcie</h4></div>
+        <div class="panel-body">
+            <form class="p-a-1" asp-action="RsvpForm" method="post">
+                <div class="form-group">
                     <label asp-for="Name">Imię i nazwisko:</label>
-                    <input asp-for="Name" />
-                </p>
-                <p>
+                    <input class="form-control" asp-for="Name" />
+                </div>
+                <div class="form-group">
                     <label asp-for="Email">Adres e-mail:</label>
-                    <input asp-for="Email" />
-                </p>
-                <p>
+                    <input class="form-control" asp-for="Email" />
+                </div>
+                <div class="form-group">
                     <label asp-for="Phone">Numer telefonu:</label>
-                    <input asp-for="Phone" />
-                </p>
-                <p>
+                    <input class="form-control" asp-for="Phone" />
+                </div>
+                <div class="form-group">
                     <label>Czy przyjdziesz na przyjęcie?</label>
-                    <select asp-for="WillAttend">
+                    <select class="form-control" asp-for="WillAttend">
                         <option value="">Wybierz opcję</option>
                         <option value="true">Tak, przyjdę</option>
                         <option value="false">Nie, nie przyjdę</option>
                     </select>
-                </p>
+                </div>
                 <div asp-validation-summary="All"></div>
-                <button type="submit">Wyślij potwierdzenie</button>
+                <div>
+                    <button class="btn btn-primary" type="submit">Wyślij potwierdzenie</button>
+                </div>
             </form>
-        </center>
+        </div>
     </div>
 </body>
 </html>

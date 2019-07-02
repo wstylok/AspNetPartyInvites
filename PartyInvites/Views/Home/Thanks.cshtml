@@ -7,26 +7,28 @@
 <html>
 <head>
     <meta name="viewport" content="width-device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <title>Dziękujemy | Urodziny K</title>
 </head>
-<body>
+<body class="text-center">
     <div>
-        <center>
+        <p>
+            <h1>Dziękujemy, @Model.Name</h1>
+            @if (Model.WillAttend == true)
+            {
+                @:Cieszymy się, że przyjdziesz.
+            }
+            else
+            {
+                @:Przykro nam, że Cię nie będzie.
+            }
+        </p>
+        @if (Model.WillAttend == true)
+        {
             <p>
-                <h1>Dziękujemy, @Model.Name</h1>
-                @if (Model.WillAttend == true)
-                {
-                    @:Cieszymy się, że przyjdziesz.
-                }
-                else
-                {
-                    @:Przykro nam, że Cię nie będzie.
-                }
+                Kliknij <a class="nav-link" asp-action="ListResponses">tutaj</a>, aby wyświetlić listę gości.
             </p>
-            <p>
-                Kliknij <a asp-action="ListResponses">tutaj</a>, aby wyświetlić listę gości.
-            </p>
-        </center>
-    </div>
+        }
+        </div>
 </body>
 </html>

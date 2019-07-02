@@ -11,7 +11,7 @@ namespace PartyInvites.Controllers
         {
             //greetings and current time info
             int hour = DateTime.Now.Hour;
-            ViewBag.Greeting = hour < 17 ? "Dzień dobry" : "Dobry wieczór";
+            ViewBag.Greeting = hour < 17 && hour > 3 ? "Dzień dobry" : "Dobry wieczór";
             ViewBag.Hour = $"{DateTime.Now.Hour}:{DateTime.Now.Minute}";
             ViewBag.Day = $"{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}";
 

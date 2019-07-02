@@ -3,20 +3,22 @@
 }
 
 <html>
-    <head>
-        <meta name="viewport" content="width-device-width" />
-        <title>Urodziny K</title>
-    </head>
-    <body>
-        <div>
-            <center>
-                @ViewBag.Greeting! <br />
-                Jest godzina @ViewBag.Hour, dnia @ViewBag.Day<br />
-                @ViewBag.TimeLeft
-
-                <br /><br /><br />
-                <a asp-action="RsvpForm">Wyślij potwierdzenie</a>
-            </center>
-        </div>
-    </body>
+<head>
+    <meta name="viewport" content="width-device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <title>Urodziny K</title>
+</head>
+<body>
+    <div class="text-center">
+        <h1>@ViewBag.Greeting! <br /></h1>
+        <h2>Zapraszamy na przyjęcie urodzinowe</h2>
+        <p>
+            Jest godzina @ViewBag.Hour, dnia @ViewBag.Day<br />
+            @ViewBag.TimeLeft
+        </p>
+        <h3>Ty te zostałeś zaproszony!</h3>
+        <br /><br /><br />
+        <a class="btn btn-primary" asp-action="RsvpForm">Wyślij potwierdzenie</a>
+    </div>
+</body>
 </html>
